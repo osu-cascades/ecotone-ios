@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4225DE021ECA14A900CDF91C /* PlantIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */; };
 		42BEC7861EC0DB040042179D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEC7851EC0DB040042179D /* AppDelegate.swift */; };
-		42BEC7881EC0DB040042179D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEC7871EC0DB040042179D /* ViewController.swift */; };
+		42BEC7881EC0DB040042179D /* WebAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEC7871EC0DB040042179D /* WebAppViewController.swift */; };
 		42BEC78B1EC0DB040042179D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BEC7891EC0DB040042179D /* Main.storyboard */; };
 		42BEC78D1EC0DB040042179D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42BEC78C1EC0DB040042179D /* Assets.xcassets */; };
 		42BEC7901EC0DB040042179D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BEC78E1EC0DB040042179D /* LaunchScreen.storyboard */; };
@@ -34,9 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantIdentificationViewController.swift; sourceTree = "<group>"; };
 		42BEC7821EC0DB040042179D /* Ecotone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecotone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BEC7851EC0DB040042179D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42BEC7871EC0DB040042179D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42BEC7871EC0DB040042179D /* WebAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppViewController.swift; sourceTree = "<group>"; };
 		42BEC78A1EC0DB040042179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42BEC78C1EC0DB040042179D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42BEC78F1EC0DB040042179D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				42BEC7851EC0DB040042179D /* AppDelegate.swift */,
-				42BEC7871EC0DB040042179D /* ViewController.swift */,
+				42BEC7871EC0DB040042179D /* WebAppViewController.swift */,
 				42BEC7891EC0DB040042179D /* Main.storyboard */,
 				42BEC78C1EC0DB040042179D /* Assets.xcassets */,
 				42BEC78E1EC0DB040042179D /* LaunchScreen.storyboard */,
 				42BEC7911EC0DB040042179D /* Info.plist */,
+				4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */,
 			);
 			path = Ecotone;
 			sourceTree = "<group>";
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42BEC7881EC0DB040042179D /* ViewController.swift in Sources */,
+				4225DE021ECA14A900CDF91C /* PlantIdentificationViewController.swift in Sources */,
+				42BEC7881EC0DB040042179D /* WebAppViewController.swift in Sources */,
 				42BEC7861EC0DB040042179D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +511,7 @@
 				42BEC7AC1EC0DB040042179D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42BEC7AD1EC0DB040042179D /* Build configuration list for PBXNativeTarget "EcotoneTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				42BEC7AF1EC0DB040042179D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		42BEC7B01EC0DB040042179D /* Build configuration list for PBXNativeTarget "EcotoneUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				42BEC7B21EC0DB040042179D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
