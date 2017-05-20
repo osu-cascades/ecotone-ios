@@ -7,21 +7,21 @@
 //
 
 import UIKit
-
-class WebAppViewController: UIViewController {
-
-    @IBOutlet weak var webView: UIWebView!
+import WebKit
+class WebAppViewController: UIViewController, WKNavigationDelegate {
+    
+    var webView: WKWebView!
+    
+    override func loadView() {
+        webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Get the webview to display ecotone
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
-}
+        let myURL = URL(string: "https://osu-ecotone.herokuapp.com/")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
+    }}
 
