@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WebAppViewController.swift
 //  Ecotone
 //
 //  Created by Nathan Struhs on 5/8/17.
@@ -8,20 +8,27 @@
 
 import UIKit
 import WebKit
-class WebAppViewController: UIViewController, WKNavigationDelegate {
-    
-    var webView: WKWebView!
-    
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
     }
+}
+
+class WebAppViewController: UIViewController {
     
+    @IBOutlet weak var webView: UIWebView!
+
+    let url = URL(string: "http://ecotone.osucascades.edu")!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myURL = URL(string: "https://osu-ecotone.herokuapp.com/")
-        let myRequest = URLRequest(url: myURL!)
-        webView.load(myRequest)
-    }}
+        webView.loadRequest(URLRequest(url: url))
+        UIApplication.shared.statusBarView?.backgroundColor = #colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
+}
