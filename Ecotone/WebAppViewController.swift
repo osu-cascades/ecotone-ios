@@ -5,12 +5,6 @@
 import UIKit
 import WebKit
 
-extension UIApplication {
-    var statusBarView: UIView? {
-        return value(forKey: "statusBar") as? UIView
-    }
-}
-
 class WebAppViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!

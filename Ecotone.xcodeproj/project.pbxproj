@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E56333F1ED246E300A210BF /* UIApplication+statusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E56333E1ED246E300A210BF /* UIApplication+statusBar.swift */; };
 		4225DE021ECA14A900CDF91C /* PlantIdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */; };
 		4241FB7A1ED0E0ED009BE6FE /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241FB791ED0E0ED009BE6FE /* PhotoViewController.swift */; };
 		42BEC7861EC0DB040042179D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEC7851EC0DB040042179D /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E56333E1ED246E300A210BF /* UIApplication+statusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+statusBar.swift"; sourceTree = "<group>"; };
 		4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantIdentificationViewController.swift; sourceTree = "<group>"; };
 		4241FB791ED0E0ED009BE6FE /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		42BEC7821EC0DB040042179D /* Ecotone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ecotone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,13 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				42BEC7851EC0DB040042179D /* AppDelegate.swift */,
+				1E56333E1ED246E300A210BF /* UIApplication+statusBar.swift */,
 				42BEC7871EC0DB040042179D /* WebAppViewController.swift */,
+				4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */,
+				4241FB791ED0E0ED009BE6FE /* PhotoViewController.swift */,
 				42BEC7891EC0DB040042179D /* Main.storyboard */,
 				42BEC78C1EC0DB040042179D /* Assets.xcassets */,
 				42BEC78E1EC0DB040042179D /* LaunchScreen.storyboard */,
 				42BEC7911EC0DB040042179D /* Info.plist */,
-				4225DE011ECA14A900CDF91C /* PlantIdentificationViewController.swift */,
-				4241FB791ED0E0ED009BE6FE /* PhotoViewController.swift */,
 			);
 			path = Ecotone;
 			sourceTree = "<group>";
@@ -199,7 +202,7 @@
 				TargetAttributes = {
 					42BEC7811EC0DB040042179D = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 399Y7AZG7D;
+						DevelopmentTeam = 3B5FYTC29L;
 						ProvisioningStyle = Automatic;
 					};
 					42BEC7951EC0DB040042179D = {
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E56333F1ED246E300A210BF /* UIApplication+statusBar.swift in Sources */,
 				4225DE021ECA14A900CDF91C /* PlantIdentificationViewController.swift in Sources */,
 				4241FB7A1ED0E0ED009BE6FE /* PhotoViewController.swift in Sources */,
 				42BEC7881EC0DB040042179D /* WebAppViewController.swift in Sources */,
@@ -425,7 +429,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 399Y7AZG7D;
+				DEVELOPMENT_TEAM = 3B5FYTC29L;
 				INFOPLIST_FILE = Ecotone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -442,7 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 399Y7AZG7D;
+				DEVELOPMENT_TEAM = 3B5FYTC29L;
 				INFOPLIST_FILE = Ecotone/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
