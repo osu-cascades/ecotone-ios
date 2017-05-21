@@ -10,15 +10,14 @@ class PlantIdentificationViewController: UIViewController, AVCaptureVideoDataOut
 
     let captureSession = AVCaptureSession()
     var previewLayer:CALayer!
-
     var captureDevice : AVCaptureDevice!
-
     var takePhoto = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         prepareCamera()
@@ -26,7 +25,6 @@ class PlantIdentificationViewController: UIViewController, AVCaptureVideoDataOut
 
     func prepareCamera() {
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
-
         if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .back).devices {
             captureDevice = availableDevices.first
             beginSession()
@@ -38,7 +36,7 @@ class PlantIdentificationViewController: UIViewController, AVCaptureVideoDataOut
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(captureDeviceInput)
         } catch {
-            print(error.localizedDescription)
+            print("beginSession : \(error.localizedDescription)")
         }
 
         if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) {
@@ -103,7 +101,6 @@ class PlantIdentificationViewController: UIViewController, AVCaptureVideoDataOut
 
     func stopCaptureSession() {
         self.captureSession.stopRunning()
-
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
                 self.captureSession.removeInput(input)
@@ -111,8 +108,12 @@ class PlantIdentificationViewController: UIViewController, AVCaptureVideoDataOut
         }
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
+
 }
