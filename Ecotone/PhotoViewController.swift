@@ -1,19 +1,15 @@
-//
-//  PhotoViewController.swift
-//  Ecotone
-//
-//  Created by Nathan Struhs on 5/20/17.
-//  Copyright © 2017 OSU Cascades. All rights reserved.
-//
+// PhotoViewController.swift
+// Created by Nathan Struhs on 5/20/17.
+// Copyright © 2017 Nathan Struhs, Yong Bakos. All rights reserved.
 
 import UIKit
 
 class PhotoViewController: UIViewController {
-    
+
     var takenPhoto:UIImage?
 
     @IBOutlet weak var imageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let availableImage = takenPhoto {
@@ -24,12 +20,12 @@ class PhotoViewController: UIViewController {
     @IBAction func goBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation

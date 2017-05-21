@@ -1,10 +1,6 @@
-//
-//  AppDelegate.swift
-//  Ecotone
-//
-//  Created by Nathan Struhs on 5/8/17.
-//  Copyright © 2017 OSU Cascades. All rights reserved.
-//
+// AppDelegate.swift
+// Created by Nathan Struhs on 5/8/17.
+// Copyright © 2017 Nathan Struhs, Yong Bakos. All rights reserved.
 
 import UIKit
 
