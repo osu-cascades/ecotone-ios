@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PlantIdentificationViewController-->
+        <!--QR Code View Controller-->
         <scene sceneID="Lqd-UV-PHm">
             <objects>
-                <viewController id="Gy3-Kj-9xD" userLabel="PlantIdentificationViewController" customClass="QRCodeCaptureViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gy3-Kj-9xD" userLabel="QR Code View Controller" customClass="QRCodeCaptureViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p16-f7-u21"/>
                         <viewControllerLayoutGuide type="bottom" id="O1e-YA-YCT"/>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1449" y="121"/>
         </scene>
-        <!--WebAppViewController-->
+        <!--Web App View Controller-->
         <scene sceneID="daS-e2-J4m">
             <objects>
-                <viewController id="jo9-f8-9yl" userLabel="WebAppViewController" customClass="WebAppViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jo9-f8-9yl" userLabel="Web App View Controller" customClass="WebAppViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R6m-9R-Pup"/>
                         <viewControllerLayoutGuide type="bottom" id="Bft-uh-IGp"/>
