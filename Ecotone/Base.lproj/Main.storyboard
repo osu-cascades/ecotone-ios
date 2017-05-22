@@ -12,7 +12,7 @@
         <!--PlantIdentificationViewController-->
         <scene sceneID="Lqd-UV-PHm">
             <objects>
-                <viewController id="Gy3-Kj-9xD" userLabel="PlantIdentificationViewController" customClass="PlantIdentificationViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gy3-Kj-9xD" userLabel="PlantIdentificationViewController" customClass="QRCodeCaptureViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p16-f7-u21"/>
                         <viewControllerLayoutGuide type="bottom" id="O1e-YA-YCT"/>
@@ -25,7 +25,7 @@
                     <navigationItem key="navigationItem" title="Scan QR Code" id="f28-d2-npi">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Rey-zb-PoQ">
                             <connections>
-                                <action selector="takePhoto:" destination="Gy3-Kj-9xD" id="Wsn-jp-URs"/>
+                                <action selector="takePhoto:" destination="Gy3-Kj-9xD" id="W5u-LZ-UG6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
