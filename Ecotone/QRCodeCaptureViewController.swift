@@ -15,11 +15,11 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
         prepareCamera()
     }
 
