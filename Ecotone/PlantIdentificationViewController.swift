@@ -71,12 +71,10 @@ class PlantIdentificationViewController: UIViewController, AVCaptureVideoDataOut
             takePhoto = false
             if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async {
-                    let photoVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhotoVC") as! PhotoViewController
-
-                    photoVC.takenPhoto = image
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlantAndPlotViewController") as! PlantAndPlotViewController
 
                     DispatchQueue.main.async {
-                        self.present(photoVC, animated: true, completion: {
+                        self.present(vc, animated: true, completion: {
                             self.stopCaptureSession()
                         })
                     }
