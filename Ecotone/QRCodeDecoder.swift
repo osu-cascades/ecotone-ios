@@ -22,15 +22,21 @@ class QRCodeDecoder {
             captureDevice = nil
         }
         
+        dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)]
+        dataOutput.alwaysDiscardsLateVideoFrames = true
+        
+        captureSession.beginConfiguration()
         do {
             captureSession.addInput(try AVCaptureDeviceInput(device: captureDevice))
         } catch {
             print("beginSession : \(error.localizedDescription)")
         }
+        if captureSession.canAddOutput(dataOutput) {
+            captureSession.addOutput(dataOutput)
+        }
+        captureSession.commitConfiguration()
+        captureSession.startRunning()
         
-        dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)]
-        dataOutput.alwaysDiscardsLateVideoFrames = true
-
     }
     
     func stopCaptureSession() {

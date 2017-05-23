@@ -19,13 +19,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
                 self.previewLayer = previewLayer
                 self.view.layer.addSublayer(self.previewLayer)
                 self.previewLayer.frame = self.view.layer.frame
-                qrCodeDecoder.captureSession.startRunning()
-                
-                if qrCodeDecoder.captureSession.canAddOutput(qrCodeDecoder.dataOutput) {
-                    qrCodeDecoder.captureSession.addOutput(qrCodeDecoder.dataOutput)
-                }
-                
-                qrCodeDecoder.captureSession.commitConfiguration()
                 
                 qrCodeDecoder.dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.ecotone.captureQueue"))
                 
