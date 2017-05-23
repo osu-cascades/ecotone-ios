@@ -11,6 +11,7 @@ class QRCodeDecoder {
     let captureDevice : AVCaptureDevice?
     let dataOutput = AVCaptureVideoDataOutput()
     var captured = false
+    let previewLayer: AVCaptureVideoPreviewLayer?
     
     init() {
 
@@ -37,7 +38,8 @@ class QRCodeDecoder {
         }
         captureSession.commitConfiguration()
         captureSession.startRunning()
-        
+    
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     }
     
     func setSampleBufferDelegate(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate, queue: DispatchQueue) {
