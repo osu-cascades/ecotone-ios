@@ -10,6 +10,7 @@ class QRCodeDecoder {
     let captureSession = AVCaptureSession()
     let captureDevice : AVCaptureDevice?
     let dataOutput = AVCaptureVideoDataOutput()
+    var captured = false
     
     init() {
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto

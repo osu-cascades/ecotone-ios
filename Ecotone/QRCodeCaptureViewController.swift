@@ -12,8 +12,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     
     var previewLayer:CALayer!
 
-    var takePhoto = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if qrCodeDecoder.captureDevice != nil {
@@ -41,13 +39,13 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     }
 
     @IBAction func takePhoto(_ sender: Any) {
-        takePhoto = true
+        qrCodeDecoder.captured = true
     }
     
     // AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-        if takePhoto {
-            takePhoto = false
+        if qrCodeDecoder.captured {
+            qrCodeDecoder.captured = false
             if let image = self.qrCodeDecoder.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async {
                     let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlantAndPlotViewController") as! PlantAndPlotViewController
