@@ -11,7 +11,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     let qrCodeDecoder = QRCodeDecoder()
     
     var previewLayer:CALayer!
-    var captureDevice : AVCaptureDevice!
+
     var takePhoto = false
 
     override func viewDidLoad() {
@@ -21,19 +21,14 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
-        prepareCamera()
-    }
-
-    func prepareCamera() {
-        if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .back).devices {
-            captureDevice = availableDevices.first
+        if qrCodeDecoder.captureDevice != nil {
             beginSession()
         }
     }
 
     func beginSession() {
         do {
-            let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
+            let captureDeviceInput = try AVCaptureDeviceInput(device: qrCodeDecoder.captureDevice)
             qrCodeDecoder.captureSession.addInput(captureDeviceInput)
         } catch {
             print("beginSession : \(error.localizedDescription)")

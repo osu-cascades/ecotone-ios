@@ -8,9 +8,17 @@ import UIKit
 class QRCodeDecoder {
     
     let captureSession = AVCaptureSession()
+    let captureDevice : AVCaptureDevice?
     
     init() {
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+        if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera],
+                                                                  mediaType: AVMediaTypeVideo,
+                                                                  position: .back).devices {
+            captureDevice = availableDevices.first
+        } else {
+            captureDevice = nil
+        }
     }
     
     func stopCaptureSession() {
