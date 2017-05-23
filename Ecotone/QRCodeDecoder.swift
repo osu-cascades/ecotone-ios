@@ -13,6 +13,7 @@ class QRCodeDecoder {
     var captured = false
     
     init() {
+
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera],
                                                                   mediaType: AVMediaTypeVideo,
@@ -21,7 +22,7 @@ class QRCodeDecoder {
         } else {
             captureDevice = nil
         }
-        
+
         dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)]
         dataOutput.alwaysDiscardsLateVideoFrames = true
         
@@ -37,6 +38,10 @@ class QRCodeDecoder {
         captureSession.commitConfiguration()
         captureSession.startRunning()
         
+    }
+    
+    func setSampleBufferDelegate(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate, queue: DispatchQueue) {
+        dataOutput.setSampleBufferDelegate(delegate, queue: queue)
     }
     
     func stopCaptureSession() {
