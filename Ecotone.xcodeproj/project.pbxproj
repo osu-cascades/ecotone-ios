@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E16B1271ED3B31100072497 /* QRCodeDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E16B1261ED3B31100072497 /* QRCodeDecoder.swift */; };
 		1E56333F1ED246E300A210BF /* UIApplication+statusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E56333E1ED246E300A210BF /* UIApplication+statusBar.swift */; };
 		4225DE021ECA14A900CDF91C /* QRCodeCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4225DE011ECA14A900CDF91C /* QRCodeCaptureViewController.swift */; };
 		4241FB7A1ED0E0ED009BE6FE /* PlantAndPlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4241FB791ED0E0ED009BE6FE /* PlantAndPlotViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E16B1261ED3B31100072497 /* QRCodeDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeDecoder.swift; sourceTree = "<group>"; };
 		1E56333E1ED246E300A210BF /* UIApplication+statusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+statusBar.swift"; sourceTree = "<group>"; };
 		4225DE011ECA14A900CDF91C /* QRCodeCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeCaptureViewController.swift; sourceTree = "<group>"; };
 		4241FB791ED0E0ED009BE6FE /* PlantAndPlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantAndPlotViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				42BEC7871EC0DB040042179D /* WebAppViewController.swift */,
 				4225DE011ECA14A900CDF91C /* QRCodeCaptureViewController.swift */,
 				4241FB791ED0E0ED009BE6FE /* PlantAndPlotViewController.swift */,
+				1E16B1261ED3B31100072497 /* QRCodeDecoder.swift */,
 				42BEC7891EC0DB040042179D /* Main.storyboard */,
 				42BEC78C1EC0DB040042179D /* Assets.xcassets */,
 				42BEC78E1EC0DB040042179D /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E16B1271ED3B31100072497 /* QRCodeDecoder.swift in Sources */,
 				1E56333F1ED246E300A210BF /* UIApplication+statusBar.swift in Sources */,
 				4225DE021ECA14A900CDF91C /* QRCodeCaptureViewController.swift in Sources */,
 				4241FB7A1ED0E0ED009BE6FE /* PlantAndPlotViewController.swift in Sources */,

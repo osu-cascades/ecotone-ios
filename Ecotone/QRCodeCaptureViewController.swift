@@ -8,7 +8,8 @@ import AVFoundation
 
 class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
-    let captureSession = AVCaptureSession()
+    let qrCodeDecoder = QRCodeDecoder()
+    
     var previewLayer:CALayer!
     var captureDevice : AVCaptureDevice!
     var takePhoto = false
@@ -24,7 +25,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     }
 
     func prepareCamera() {
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+        qrCodeDecoder.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .back).devices {
             captureDevice = availableDevices.first
             beginSession()
@@ -34,27 +35,27 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     func beginSession() {
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
-            captureSession.addInput(captureDeviceInput)
+            qrCodeDecoder.captureSession.addInput(captureDeviceInput)
         } catch {
             print("beginSession : \(error.localizedDescription)")
         }
 
-        if let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession) {
+        if let previewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession) {
             self.previewLayer = previewLayer
             self.view.layer.addSublayer(self.previewLayer)
             self.previewLayer.frame = self.view.layer.frame
-            captureSession.startRunning()
+            qrCodeDecoder.captureSession.startRunning()
 
             let dataOutput = AVCaptureVideoDataOutput()
             dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString):NSNumber(value:kCVPixelFormatType_32BGRA)]
 
             dataOutput.alwaysDiscardsLateVideoFrames = true
 
-            if captureSession.canAddOutput(dataOutput) {
-                captureSession.addOutput(dataOutput)
+            if qrCodeDecoder.captureSession.canAddOutput(dataOutput) {
+                qrCodeDecoder.captureSession.addOutput(dataOutput)
             }
 
-            captureSession.commitConfiguration()
+            qrCodeDecoder.captureSession.commitConfiguration()
 
             let queue = DispatchQueue(label: "com.ecotone.captureQueue")
             dataOutput.setSampleBufferDelegate(self, queue: queue)
@@ -98,10 +99,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     }
 
     func stopCaptureSession() {
-        self.captureSession.stopRunning()
-        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+        qrCodeDecoder.captureSession.stopRunning()
+        if let inputs = qrCodeDecoder.captureSession.inputs as? [AVCaptureDeviceInput] {
             for input in inputs {
-                self.captureSession.removeInput(input)
+                qrCodeDecoder.captureSession.removeInput(input)
             }
         }
     }
