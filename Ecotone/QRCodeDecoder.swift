@@ -9,6 +9,7 @@ class QRCodeDecoder {
     
     let captureSession = AVCaptureSession()
     let captureDevice : AVCaptureDevice?
+    let dataOutput = AVCaptureVideoDataOutput()
     
     init() {
         captureSession.sessionPreset = AVCaptureSessionPresetPhoto
@@ -19,6 +20,10 @@ class QRCodeDecoder {
         } else {
             captureDevice = nil
         }
+        
+        dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)]
+        dataOutput.alwaysDiscardsLateVideoFrames = true
+
     }
     
     func stopCaptureSession() {

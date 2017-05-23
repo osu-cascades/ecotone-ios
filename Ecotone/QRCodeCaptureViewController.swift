@@ -40,19 +40,14 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
             self.previewLayer.frame = self.view.layer.frame
             qrCodeDecoder.captureSession.startRunning()
 
-            let dataOutput = AVCaptureVideoDataOutput()
-            dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString):NSNumber(value:kCVPixelFormatType_32BGRA)]
-
-            dataOutput.alwaysDiscardsLateVideoFrames = true
-
-            if qrCodeDecoder.captureSession.canAddOutput(dataOutput) {
-                qrCodeDecoder.captureSession.addOutput(dataOutput)
+            if qrCodeDecoder.captureSession.canAddOutput(qrCodeDecoder.dataOutput) {
+                qrCodeDecoder.captureSession.addOutput(qrCodeDecoder.dataOutput)
             }
 
             qrCodeDecoder.captureSession.commitConfiguration()
 
             let queue = DispatchQueue(label: "com.ecotone.captureQueue")
-            dataOutput.setSampleBufferDelegate(self, queue: queue)
+            qrCodeDecoder.dataOutput.setSampleBufferDelegate(self, queue: queue)
 
         }
     }
