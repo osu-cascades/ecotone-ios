@@ -17,31 +17,27 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     override func viewDidLoad() {
         super.viewDidLoad()
         if qrCodeDecoder.captureDevice != nil {
-            beginSession()
+            if let previewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession) {
+                self.previewLayer = previewLayer
+                self.view.layer.addSublayer(self.previewLayer)
+                self.previewLayer.frame = self.view.layer.frame
+                qrCodeDecoder.captureSession.startRunning()
+                
+                if qrCodeDecoder.captureSession.canAddOutput(qrCodeDecoder.dataOutput) {
+                    qrCodeDecoder.captureSession.addOutput(qrCodeDecoder.dataOutput)
+                }
+                
+                qrCodeDecoder.captureSession.commitConfiguration()
+                
+                qrCodeDecoder.dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.ecotone.captureQueue"))
+                
+            }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
-    }
-
-    func beginSession() {
-        if let previewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession) {
-            self.previewLayer = previewLayer
-            self.view.layer.addSublayer(self.previewLayer)
-            self.previewLayer.frame = self.view.layer.frame
-            qrCodeDecoder.captureSession.startRunning()
-
-            if qrCodeDecoder.captureSession.canAddOutput(qrCodeDecoder.dataOutput) {
-                qrCodeDecoder.captureSession.addOutput(qrCodeDecoder.dataOutput)
-            }
-
-            qrCodeDecoder.captureSession.commitConfiguration()
-
-            qrCodeDecoder.dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.ecotone.captureQueue"))
-
-        }
     }
 
     @IBAction func takePhoto(_ sender: Any) {
