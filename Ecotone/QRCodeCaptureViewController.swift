@@ -66,43 +66,21 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     @IBAction func takePhoto(_ sender: Any) {
         takePhoto = true
     }
-
+    
+    // AVCaptureVideoDataOutputSampleBufferDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
         if takePhoto {
             takePhoto = false
-            if let image = self.getImageFromSampleBuffer(buffer: sampleBuffer) {
+            if let image = self.qrCodeDecoder.getImageFromSampleBuffer(buffer: sampleBuffer) {
                 DispatchQueue.main.async {
                     let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PlantAndPlotViewController") as! PlantAndPlotViewController
 
                     DispatchQueue.main.async {
                         self.present(vc, animated: true, completion: {
-                            self.stopCaptureSession()
+                            self.qrCodeDecoder.stopCaptureSession()
                         })
                     }
                 }
-            }
-        }
-    }
-
-    func getImageFromSampleBuffer (buffer:CMSampleBuffer) -> UIImage? {
-        if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
-            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-            let context = CIContext()
-
-            let imageRect = CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
-
-            if let image = context.createCGImage(ciImage, from: imageRect) {
-                return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
-            }
-        }
-        return nil
-    }
-
-    func stopCaptureSession() {
-        qrCodeDecoder.captureSession.stopRunning()
-        if let inputs = qrCodeDecoder.captureSession.inputs as? [AVCaptureDeviceInput] {
-            for input in inputs {
-                qrCodeDecoder.captureSession.removeInput(input)
             }
         }
     }
