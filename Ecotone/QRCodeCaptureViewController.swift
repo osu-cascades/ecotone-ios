@@ -9,10 +9,11 @@ import AVFoundation
 class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     let qrCodeDecoder = QRCodeDecoder()
-
+    let sampleBufferDelegateQueueName = "com.ecotone.captureQueue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        qrCodeDecoder.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.ecotone.captureQueue"))
+        qrCodeDecoder.setSampleBufferDelegate(self, queue: DispatchQueue(label: sampleBufferDelegateQueueName))
         if let previewLayer = qrCodeDecoder.previewLayer {
             self.view.layer.addSublayer(previewLayer)
             previewLayer.frame = self.view.layer.frame
