@@ -25,7 +25,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     }
 
     func prepareCamera() {
-        qrCodeDecoder.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
         if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaTypeVideo, position: .back).devices {
             captureDevice = availableDevices.first
             beginSession()

@@ -9,6 +9,10 @@ class QRCodeDecoder {
     
     let captureSession = AVCaptureSession()
     
+    init() {
+        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+    }
+    
     func stopCaptureSession() {
         captureSession.stopRunning()
         if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
