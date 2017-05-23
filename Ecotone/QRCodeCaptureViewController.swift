@@ -27,13 +27,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     }
 
     func beginSession() {
-        do {
-            let captureDeviceInput = try AVCaptureDeviceInput(device: qrCodeDecoder.captureDevice)
-            qrCodeDecoder.captureSession.addInput(captureDeviceInput)
-        } catch {
-            print("beginSession : \(error.localizedDescription)")
-        }
-
         if let previewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession) {
             self.previewLayer = previewLayer
             self.view.layer.addSublayer(self.previewLayer)

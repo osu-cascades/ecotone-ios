@@ -21,6 +21,12 @@ class QRCodeDecoder {
             captureDevice = nil
         }
         
+        do {
+            captureSession.addInput(try AVCaptureDeviceInput(device: captureDevice))
+        } catch {
+            print("beginSession : \(error.localizedDescription)")
+        }
+        
         dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)]
         dataOutput.alwaysDiscardsLateVideoFrames = true
 
