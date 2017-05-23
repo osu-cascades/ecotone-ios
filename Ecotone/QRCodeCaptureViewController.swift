@@ -46,8 +46,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
 
             qrCodeDecoder.captureSession.commitConfiguration()
 
-            let queue = DispatchQueue(label: "com.ecotone.captureQueue")
-            qrCodeDecoder.dataOutput.setSampleBufferDelegate(self, queue: queue)
+            qrCodeDecoder.dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.ecotone.captureQueue"))
 
         }
     }
