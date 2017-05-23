@@ -15,13 +15,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
     override func viewDidLoad() {
         super.viewDidLoad()
         qrCodeDecoder.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.ecotone.captureQueue"))
-        
-        if qrCodeDecoder.captureDevice != nil {
-            if let previewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession) {
-                self.previewLayer = previewLayer
-                self.view.layer.addSublayer(self.previewLayer)
-                self.previewLayer.frame = self.view.layer.frame
-            }
+        if let previewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession) {
+            self.previewLayer = previewLayer
+            self.view.layer.addSublayer(self.previewLayer)
+            self.previewLayer.frame = self.view.layer.frame
         }
     }
     
