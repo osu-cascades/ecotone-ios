@@ -16,14 +16,14 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureVideoDataOutputSam
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if qrCodeDecoder.captureDevice != nil {
+            beginSession()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
-        if qrCodeDecoder.captureDevice != nil {
-            beginSession()
-        }
     }
 
     func beginSession() {
