@@ -8,7 +8,7 @@ import UIKit
 class QRCodeDecoder {
     
     let captureSession = AVCaptureSession()
-    let captureDevice : AVCaptureDevice?
+    let captureDevice: AVCaptureDevice?
     let dataOutput = AVCaptureVideoDataOutput()
     var captured = false
     let previewLayer: AVCaptureVideoPreviewLayer?
