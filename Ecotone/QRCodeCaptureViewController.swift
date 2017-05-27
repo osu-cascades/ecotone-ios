@@ -25,10 +25,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
     }
-
-    @IBAction func takePhoto(_ sender: Any) {
-        qrCodeDecoder.captured = true
-    }
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         // TODO

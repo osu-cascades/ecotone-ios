@@ -23,11 +23,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scan QR Code" id="f28-d2-npi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Rey-zb-PoQ">
-                            <connections>
-                                <action selector="takePhoto:" destination="Gy3-Kj-9xD" id="W5u-LZ-UG6"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Rey-zb-PoQ"/>
                     </navigationItem>
                     <connections>
                         <segue destination="RFY-Ux-rvx" kind="show" identifier="plantInformationSegue" id="ngK-BM-Qgf"/>

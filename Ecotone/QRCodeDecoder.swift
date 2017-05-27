@@ -11,7 +11,6 @@ class QRCodeDecoder {
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     let dataOutput = AVCaptureMetadataOutput()
     let previewLayer: AVCaptureVideoPreviewLayer
-    var captured = false
     
     init() {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -25,7 +24,6 @@ class QRCodeDecoder {
         dataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
         captureSession.commitConfiguration()
         captureSession.startRunning()
-
     }
     
     func setCaptureDelegate(_ delegate: AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue) {
