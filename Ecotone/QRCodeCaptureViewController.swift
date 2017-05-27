@@ -16,10 +16,9 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
     override func viewDidLoad() {
         super.viewDidLoad()
         qrCodeDecoder.setCaptureDelegate(self, queue: DispatchQueue(label: sampleBufferDelegateQueueName))
-        if let previewLayer = qrCodeDecoder.previewLayer {
-            self.view.layer.addSublayer(previewLayer)
-            previewLayer.frame = self.view.layer.frame
-        }
+        qrCodeDecoder.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        qrCodeDecoder.previewLayer.frame = view.layer.bounds
+        self.view.layer.addSublayer(qrCodeDecoder.previewLayer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
