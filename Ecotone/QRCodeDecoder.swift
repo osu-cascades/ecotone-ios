@@ -8,42 +8,29 @@ import UIKit
 class QRCodeDecoder {
     
     let captureSession = AVCaptureSession()
-    let captureDevice: AVCaptureDevice?
-    let dataOutput = AVCaptureVideoDataOutput()
+    let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+
+    let dataOutput = AVCaptureMetadataOutput()
     var captured = false
     let previewLayer: AVCaptureVideoPreviewLayer?
     
     init() {
-
-        captureSession.sessionPreset = AVCaptureSessionPresetPhoto
-        if let availableDevices = AVCaptureDeviceDiscoverySession(deviceTypes: [.builtInWideAngleCamera],
-                                                                  mediaType: AVMediaTypeVideo,
-                                                                  position: .back).devices {
-            captureDevice = availableDevices.first
-        } else {
-            captureDevice = nil
-        }
-
-        dataOutput.videoSettings = [(kCVPixelBufferPixelFormatTypeKey as NSString) : NSNumber(value: kCVPixelFormatType_32BGRA)]
-        dataOutput.alwaysDiscardsLateVideoFrames = true
-        
         captureSession.beginConfiguration()
         do {
             captureSession.addInput(try AVCaptureDeviceInput(device: captureDevice))
         } catch {
             print("beginSession : \(error.localizedDescription)")
         }
-        if captureSession.canAddOutput(dataOutput) {
-            captureSession.addOutput(dataOutput)
-        }
+        captureSession.addOutput(dataOutput)
+        dataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
         captureSession.commitConfiguration()
         captureSession.startRunning()
     
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     }
     
-    func setSampleBufferDelegate(_ delegate: AVCaptureVideoDataOutputSampleBufferDelegate, queue: DispatchQueue) {
-        dataOutput.setSampleBufferDelegate(delegate, queue: queue)
+    func setCaptureDelegate(_ delegate: AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue) {
+        dataOutput.setMetadataObjectsDelegate(delegate, queue: queue)
     }
     
     func stopCaptureSession() {
@@ -53,20 +40,6 @@ class QRCodeDecoder {
                 captureSession.removeInput(input)
             }
         }
-    }
-    
-    func getImageFromSampleBuffer(buffer: CMSampleBuffer) -> UIImage? {
-        if let pixelBuffer = CMSampleBufferGetImageBuffer(buffer) {
-            let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-            let context = CIContext()
-            
-            let imageRect = CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
-            
-            if let image = context.createCGImage(ciImage, from: imageRect) {
-                return UIImage(cgImage: image, scale: UIScreen.main.scale, orientation: .right)
-            }
-        }
-        return nil
     }
 
 }
