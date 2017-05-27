@@ -25,7 +25,6 @@ class QRCodeDecoder {
         dataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
         captureSession.commitConfiguration()
         captureSession.startRunning()
-    
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
     }
     
