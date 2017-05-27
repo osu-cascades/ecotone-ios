@@ -11,6 +11,7 @@ class QRCodeDecoder {
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     let dataOutput = AVCaptureMetadataOutput()
     let previewLayer: AVCaptureVideoPreviewLayer
+    var isReady = false
     
     init() {
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -19,11 +20,18 @@ class QRCodeDecoder {
             captureSession.addInput(try AVCaptureDeviceInput(device: captureDevice))
         } catch {
             print("beginSession : \(error.localizedDescription)")
+//            return
         }
         captureSession.addOutput(dataOutput)
-        dataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+        if let ots = dataOutput.metadataObjectTypes as? [String], ots.contains(AVMetadataObjectTypeQRCode) {
+            self.dataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode] // CRASH
+        } else {
+            print(dataOutput.metadataObjectTypes) // REMOVE
+//            return
+        }
         captureSession.commitConfiguration()
         captureSession.startRunning()
+        isReady = true
     }
     
     func setCaptureDelegate(_ delegate: AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue) {
