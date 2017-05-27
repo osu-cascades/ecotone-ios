@@ -10,7 +10,7 @@ import AVFoundation
 class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
     let qrCodeDecoder = QRCodeDecoder()
-    var qrCodeFrameView: UIView?
+    let qrCodeFrameView = UIView()
     let sampleBufferDelegateQueueName = "com.ecotone.captureQueue"
     
     override func viewDidLoad() {
@@ -19,6 +19,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         qrCodeDecoder.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         qrCodeDecoder.previewLayer.frame = view.layer.bounds
         self.view.layer.addSublayer(qrCodeDecoder.previewLayer)
+        qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+        qrCodeFrameView.layer.borderWidth = 2
+        self.view.addSubview(qrCodeFrameView)
+        self.view.bringSubview(toFront: qrCodeFrameView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
