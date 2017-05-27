@@ -31,6 +31,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         qrCodeDecoder.captured = true
     }
     
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+        // TODO
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
