@@ -39,6 +39,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
     }
     
+    // AVCaptureMetadataOutputObjectsDelegate
     func captureOutput(_ captureOutput: AVCaptureOutput!,
                        didOutputMetadataObjects metadataObjects: [Any]!,
                        from connection: AVCaptureConnection!) {
@@ -46,15 +47,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
             qrCodeFrameView.frame = CGRect.zero
             return
         }
-        
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        if qrCodeDecoder.supportedCodeTypes.contains(metadataObj.type) {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+        if let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
+            qrCodeDecoder.supportedCodeTypes.contains(metadataObj.type) {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
-            
             if metadataObj.stringValue != nil {
                 print(metadataObj.stringValue)
             }
