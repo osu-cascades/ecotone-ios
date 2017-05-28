@@ -18,10 +18,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do {
-            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-            let input = try AVCaptureDeviceInput(device: qrCodeDecoder.captureDevice)
-            
+        if let input = qrCodeDecoder.input {
             // Initialize the captureSession object.
             captureSession = AVCaptureSession()
             
@@ -54,11 +51,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
                 view.addSubview(qrCodeFrameView)
                 view.bringSubview(toFront: qrCodeFrameView)
             }
-            
-        } catch {
-            // If any error occurs, simply print it out and don't continue any more.
-            print(error)
-            return
         }
     }
     

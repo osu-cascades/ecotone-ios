@@ -9,7 +9,16 @@ class QRCodeDecoder {
 
     let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-
+    let input: AVCaptureDeviceInput?
+    
+    init() {
+        do {
+            input = try AVCaptureDeviceInput(device: captureDevice)
+        } catch {
+            input = nil
+            print(error)
+        }
+    }
     
 //    func setCaptureDelegate(_ delegate: AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue) {
 //        dataOutput.setMetadataObjectsDelegate(delegate, queue: queue)
