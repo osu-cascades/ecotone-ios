@@ -24,6 +24,7 @@ class QRCodeDecoder {
         }
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         addOutputAndSetMetadataObjectTypes()
+        captureSession.startRunning()
     }
 
     // Add the capture output to the capture session, and set the capture output's
