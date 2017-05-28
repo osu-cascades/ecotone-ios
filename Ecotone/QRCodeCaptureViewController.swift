@@ -17,18 +17,14 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let input = qrCodeDecoder.input {
-            
-            // Set the input device on the capture session.
-            qrCodeDecoder.captureSession.addInput(input)
-            
+        if qrCodeDecoder.input != nil {
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            qrCodeDecoder.captureSession.addOutput(captureMetadataOutput)
+
+            qrCodeDecoder.captureSession.addOutput(qrCodeDecoder.captureMetadataOutput)
             
             // Set delegate and use the default dispatch queue to execute the call back
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = qrCodeDecoder.supportedCodeTypes
+            qrCodeDecoder.captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            qrCodeDecoder.captureMetadataOutput.metadataObjectTypes = qrCodeDecoder.supportedCodeTypes
             
             // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession)

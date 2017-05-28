@@ -11,10 +11,12 @@ class QRCodeDecoder {
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     let input: AVCaptureDeviceInput?
     let captureSession = AVCaptureSession()
+    let captureMetadataOutput = AVCaptureMetadataOutput()
     
     init() {
         do {
             input = try AVCaptureDeviceInput(device: captureDevice)
+            captureSession.addInput(input)
         } catch {
             input = nil
             print(error)
