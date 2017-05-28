@@ -36,6 +36,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
+        qrCodeDecoder.startRunning()
     }
     
     // AVCaptureMetadataOutputObjectsDelegate

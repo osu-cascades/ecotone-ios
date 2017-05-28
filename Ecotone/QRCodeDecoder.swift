@@ -44,6 +44,10 @@ class QRCodeDecoder {
         captureMetadataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
     }
 
+    func startRunning() {
+        captureSession.startRunning()
+    }
+    
     func stopRunning() {
         captureSession.stopRunning()
     }
