@@ -21,6 +21,7 @@ class QRCodeDecoder {
             input = nil
             print(error)
         }
+        captureSession.addOutput(captureMetadataOutput)
     }
     
 //    func setCaptureDelegate(_ delegate: AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue) {

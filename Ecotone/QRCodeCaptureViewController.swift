@@ -18,9 +18,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         super.viewDidLoad()
         
         if qrCodeDecoder.input != nil {
-            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
-
-            qrCodeDecoder.captureSession.addOutput(qrCodeDecoder.captureMetadataOutput)
             
             // Set delegate and use the default dispatch queue to execute the call back
             qrCodeDecoder.captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
