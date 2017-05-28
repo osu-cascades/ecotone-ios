@@ -1,7 +1,6 @@
 // QRCodeCaptureViewController.swift
 // Created by Nathan Struhs on 5/15/17.
 // Copyright © 2017 Nathan Struhs, Yong Bakos. All rights reserved.
-// Source: https://www.youtube.com/watch?v=Zv4cJf5qdu0
 // Source: http://www.appcoda.com/barcode-reader-swift
 
 import UIKit
