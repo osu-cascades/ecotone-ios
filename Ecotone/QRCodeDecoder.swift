@@ -43,14 +43,9 @@ class QRCodeDecoder {
     func setMetadataObjectsDelegate(_ delegate: AVCaptureMetadataOutputObjectsDelegate, queue: DispatchQueue) {
         captureMetadataOutput.setMetadataObjectsDelegate(delegate, queue: DispatchQueue.main)
     }
-//
-//    func stopCaptureSession() {
-//        captureSession.stopRunning()
-//        if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
-//            for input in inputs {
-//                captureSession.removeInput(input)
-//            }
-//        }
-//    }
+
+    func stopRunning() {
+        captureSession.stopRunning()
+    }
 
 }

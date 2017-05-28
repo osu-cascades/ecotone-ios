@@ -56,6 +56,11 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        qrCodeDecoder.stopRunning()
+        super.viewWillDisappear(animated)
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
