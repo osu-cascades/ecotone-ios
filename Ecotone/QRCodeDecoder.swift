@@ -12,6 +12,7 @@ class QRCodeDecoder {
     let input: AVCaptureDeviceInput?
     let captureSession = AVCaptureSession()
     let captureMetadataOutput = AVCaptureMetadataOutput()
+    let videoPreviewLayer: AVCaptureVideoPreviewLayer
     
     init() {
         do {
@@ -21,6 +22,7 @@ class QRCodeDecoder {
             input = nil
             print(error)
         }
+        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         addOutputAndSetMetadataObjectTypes()
     }
 

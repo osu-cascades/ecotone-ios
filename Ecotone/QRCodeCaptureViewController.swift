@@ -11,7 +11,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
 
     let qrCodeDecoder = QRCodeDecoder()
     let qrCodeFrameView = UIView()
-
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     override func viewDidLoad() {
@@ -19,18 +18,20 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         qrCodeDecoder.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         
         if qrCodeDecoder.input != nil {
-            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
-            
             // Start video capture.
             qrCodeDecoder.captureSession.startRunning()
         }
+        initializeVideoPreviewLayer()
         initializeQRCodeFrame()
     }
 
+    func initializeVideoPreviewLayer() {
+        videoPreviewLayer = qrCodeDecoder.videoPreviewLayer
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        videoPreviewLayer?.frame = view.layer.bounds
+        view.layer.addSublayer(videoPreviewLayer!)
+    }
+    
     func initializeQRCodeFrame() {
         qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
         qrCodeFrameView.layer.borderWidth = 2
