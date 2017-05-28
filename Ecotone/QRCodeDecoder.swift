@@ -10,6 +10,7 @@ class QRCodeDecoder {
     let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     let input: AVCaptureDeviceInput?
+    let captureSession = AVCaptureSession()
     
     init() {
         do {

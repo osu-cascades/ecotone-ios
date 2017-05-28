@@ -11,36 +11,33 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
 
     let qrCodeDecoder = QRCodeDecoder()
     let qrCodeFrameView = UIView()
-    
-    var captureSession: AVCaptureSession?
+
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let input = qrCodeDecoder.input {
-            // Initialize the captureSession object.
-            captureSession = AVCaptureSession()
             
             // Set the input device on the capture session.
-            captureSession?.addInput(input)
+            qrCodeDecoder.captureSession.addInput(input)
             
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
             let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
+            qrCodeDecoder.captureSession.addOutput(captureMetadataOutput)
             
             // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             captureMetadataOutput.metadataObjectTypes = qrCodeDecoder.supportedCodeTypes
             
             // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: qrCodeDecoder.captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture.
-            captureSession?.startRunning()
+            qrCodeDecoder.captureSession.startRunning()
         }
         initializeQRCodeFrame()
     }
