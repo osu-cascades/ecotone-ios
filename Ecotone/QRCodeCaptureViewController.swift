@@ -39,10 +39,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.clear
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects == nil || metadataObjects.count == 0 {
+    func captureOutput(_ captureOutput: AVCaptureOutput!,
+                       didOutputMetadataObjects metadataObjects: [Any]!,
+                       from connection: AVCaptureConnection!) {
+        if metadataObjects == nil || metadataObjects.isEmpty {
             qrCodeFrameView.frame = CGRect.zero
             return
         }
