@@ -7,11 +7,11 @@ import UIKit
 
 class QRCodeDecoder {
 
-    let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
+    let captureSession = AVCaptureSession()
     let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
     let input: AVCaptureDeviceInput?
-    let captureSession = AVCaptureSession()
     let captureMetadataOutput = AVCaptureMetadataOutput()
+    let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
     let videoPreviewLayer: AVCaptureVideoPreviewLayer
     
     init() {
