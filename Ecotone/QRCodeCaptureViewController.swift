@@ -9,8 +9,8 @@ import AVFoundation
 
 class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
-//    let qrCodeDecoder = QRCodeDecoder()
-
+    let qrCodeDecoder = QRCodeDecoder()
+    
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
@@ -27,12 +27,10 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
-            let input = try AVCaptureDeviceInput(device: captureDevice)
+            let input = try AVCaptureDeviceInput(device: qrCodeDecoder.captureDevice)
             
             // Initialize the captureSession object.
             captureSession = AVCaptureSession()
