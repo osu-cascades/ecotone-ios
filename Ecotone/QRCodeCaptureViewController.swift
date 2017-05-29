@@ -51,10 +51,19 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
             qrCodeDecoder.supportedCodeTypes.contains(metadataObj.type) {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView.frame = barCodeObject!.bounds
-            if metadataObj.stringValue != nil {
-                print(metadataObj.stringValue)
+            if let qrCodeDecodedString = metadataObj.stringValue {
+                qrCodeFrameView.frame = CGRect.zero
+                print(qrCodeDecodedString)
+                showURLInWebApplicationTab(path: qrCodeDecodedString)
             }
         }
+    }
+    
+    func showURLInWebApplicationTab(path: String) {
+        if let webAppViewController = tabBarController?.viewControllers?[0] as? WebAppViewController {
+            webAppViewController.loadURL(path: path)
+        }
+        tabBarController?.selectedIndex = 0
     }
     
     override func viewWillDisappear(_ animated: Bool) {

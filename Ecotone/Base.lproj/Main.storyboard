@@ -22,48 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Scan QR Code" id="f28-d2-npi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Rey-zb-PoQ"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="RFY-Ux-rvx" kind="show" identifier="plantInformationSegue" id="ngK-BM-Qgf"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Scan QR Code" id="f28-d2-npi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4il-u2-FlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="649" y="121"/>
-        </scene>
-        <!--Plant and Plot View Controller-->
-        <scene sceneID="mbi-4a-RMA">
-            <objects>
-                <viewController storyboardIdentifier="PlantAndPlotViewController" id="RFY-Ux-rvx" userLabel="Plant and Plot View Controller" customClass="PlantAndPlotViewController" customModule="Ecotone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="STo-KQ-szY"/>
-                        <viewControllerLayoutGuide type="bottom" id="WRM-mY-x9b"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zst-Ja-Wyy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Information Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TF-Kt-uoT">
-                                <rect key="frame" x="101" y="323" width="172" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="5TF-Kt-uoT" firstAttribute="top" secondItem="STo-KQ-szY" secondAttribute="bottom" constant="259" id="G30-oW-cWl"/>
-                            <constraint firstItem="5TF-Kt-uoT" firstAttribute="centerX" secondItem="zst-Ja-Wyy" secondAttribute="centerX" id="cmP-Ak-cqM"/>
-                            <constraint firstItem="WRM-mY-x9b" firstAttribute="top" secondItem="5TF-Kt-uoT" secondAttribute="bottom" constant="274" id="z4B-TL-2a8"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Plant &amp; Plot Information" id="XsM-EG-thn"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MtU-ss-eIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1449" y="121"/>
         </scene>
         <!--Web App View Controller-->
         <scene sceneID="daS-e2-J4m">
