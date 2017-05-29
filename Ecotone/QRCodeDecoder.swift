@@ -49,13 +49,17 @@ class QRCodeDecoder {
     func startRunning() {
         // TODO: Dispatch async. This is a blocking call.
         // Other operations for session config must use the same thread, according to Apple docs.
-        captureSession.startRunning()
+        if !captureSession.isRunning {
+            captureSession.startRunning()
+        }
     }
     
     func stopRunning() {
         // TODO: Dispatch async. This is a blocking call.
         // Other operations for session config must use the same thread, according to Apple docs.
-        captureSession.stopRunning()
+        if captureSession.isRunning {
+            captureSession.stopRunning()
+        }
     }
 
 }
