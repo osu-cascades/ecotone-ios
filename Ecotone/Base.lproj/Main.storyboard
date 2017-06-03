@@ -22,11 +22,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Identify" image="Tab Bar QR Icon Unselected" selectedImage="Tab Bar QR Icon Selected" id="uax-Vy-uC1"/>
                     <navigationItem key="navigationItem" title="Scan QR Code" id="f28-d2-npi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4il-u2-FlL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="121"/>
+            <point key="canvasLocation" x="-159" y="126"/>
         </scene>
         <!--Web App View Controller-->
         <scene sceneID="daS-e2-J4m">
@@ -74,31 +75,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="jo9-f8-9yl" kind="relationship" relationship="viewControllers" id="fN7-MG-eXs"/>
-                        <segue destination="6Fj-wy-DhU" kind="relationship" relationship="viewControllers" id="a8L-mH-xD5"/>
+                        <segue destination="Gy3-Kj-9xD" kind="relationship" relationship="viewControllers" id="aGX-u9-nKK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3h-EZ-bRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1111" y="-206"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="c6r-Lf-cSo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Fj-wy-DhU" userLabel="Navigation Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Identify Plant" image="Tab Bar QR Icon Unselected" selectedImage="Tab Bar QR Icon Selected" id="ySa-jb-62c"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FcF-1u-wHH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Gy3-Kj-9xD" kind="relationship" relationship="rootViewController" id="3EQ-mi-hXC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="leJ-V1-BN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-159.19999999999999" y="120.98950524737631"/>
         </scene>
     </scenes>
     <resources>
