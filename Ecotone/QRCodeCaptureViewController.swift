@@ -53,7 +53,6 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
             qrCodeFrameView.frame = barCodeObject!.bounds
             if let qrCodeDecodedString = metadataObj.stringValue {
                 qrCodeFrameView.frame = CGRect.zero
-                print(qrCodeDecodedString)
                 showURLInWebApplicationTab(path: qrCodeDecodedString)
             }
         }

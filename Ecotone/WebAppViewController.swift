@@ -28,7 +28,7 @@ class WebAppViewController: UIViewController {
     }
 
     func loadURL(path: String) {
-        if let requestURL = URL(string: path) {
+        if let requestURL = URL(string: baseURL + path) {
             webView.loadRequest(URLRequest(url: requestURL))
         }
     }
