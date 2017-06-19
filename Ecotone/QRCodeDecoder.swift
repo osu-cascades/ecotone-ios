@@ -31,7 +31,7 @@ class QRCodeDecoder {
 
     // Add the capture output to the capture session, and set the capture output's
     // metadata object types. These operations must be done together, in this order.
-    func addOutputAndSetMetadataObjectTypes() {
+    private func addOutputAndSetMetadataObjectTypes() {
         captureSession.addOutput(captureMetadataOutput)
         // Devices that do not support AVMetadataObjectTypeQRCode, such as the simulator,
         // will crash when assigning unsupported code types. Check that the AVMetadataObjectTypeQRCode

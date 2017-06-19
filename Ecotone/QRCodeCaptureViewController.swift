@@ -17,7 +17,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         initializeVideoPreviewLayer()
     }
 
-    func initializeVideoPreviewLayer() {
+    private func initializeVideoPreviewLayer() {
         videoPreviewLayer = qrCodeDecoder.videoPreviewLayer
         videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
@@ -41,7 +41,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         }
     }
     
-    func showURLInWebApplicationTab(path: String) {
+    private func showURLInWebApplicationTab(path: String) {
         if let webAppViewController = tabBarController?.viewControllers?[0] as? WebAppViewController {
             webAppViewController.loadURL(path: path)
         }
