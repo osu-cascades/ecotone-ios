@@ -9,11 +9,11 @@ class WebAppViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
 
-    let baseURL = "https://osu-ecotone.herokuapp.com"
+    let homeURL = "http://ecotone.osucascades.edu"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let url = URL(string: baseURL) {
+        if let url = URL(string: homeURL) {
             webView.loadRequest(URLRequest(url: url))
         }
     }
@@ -27,8 +27,8 @@ class WebAppViewController: UIViewController {
         return .lightContent
     }
 
-    func loadURL(path: String) {
-        if let requestURL = URL(string: baseURL + path) {
+    func loadURL(_ url: String) {
+        if let requestURL = URL(string: url) {
             webView.loadRequest(URLRequest(url: requestURL))
         }
     }

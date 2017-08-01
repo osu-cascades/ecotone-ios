@@ -37,13 +37,13 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
         if let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
             qrCodeDecoder.supportedCodeTypes.contains(metadataObj.type),
             let qrCodeDecodedString = metadataObj.stringValue {
-                showURLInWebApplicationTab(path: qrCodeDecodedString)
+                showURLInWebApplicationTab(url: qrCodeDecodedString)
         }
     }
     
-    private func showURLInWebApplicationTab(path: String) {
+    private func showURLInWebApplicationTab(url: String) {
         if let webAppViewController = tabBarController?.viewControllers?[0] as? WebAppViewController {
-            webAppViewController.loadURL(path: path)
+            webAppViewController.loadURL(url)
         }
         tabBarController?.selectedIndex = 0
     }
