@@ -11,16 +11,16 @@ import UIKit
 class QRCodeDecoder {
 
     let captureSession = AVCaptureSession()
-    let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+    let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
     let input: AVCaptureDeviceInput?
     let captureMetadataOutput = AVCaptureMetadataOutput()
-    let supportedCodeTypes = [AVMetadataObjectTypeQRCode]
+    let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
     let videoPreviewLayer: AVCaptureVideoPreviewLayer
     
     init() {
         do {
-            input = try AVCaptureDeviceInput(device: captureDevice)
-            captureSession.addInput(input)
+            input = try AVCaptureDeviceInput(device: captureDevice!)
+            captureSession.addInput(input!)
         } catch {
             input = nil
             print(error)
@@ -37,7 +37,7 @@ class QRCodeDecoder {
         // will crash when assigning unsupported code types. Check that the AVMetadataObjectTypeQRCode
         // type is supported before assigning.
         if let availableMetadataObjectTypes = captureMetadataOutput.availableMetadataObjectTypes as? [String],
-            availableMetadataObjectTypes.contains(AVMetadataObjectTypeQRCode) {
+            availableMetadataObjectTypes.contains(AVMetadataObject.ObjectType.qr.rawValue) {
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         }
     }

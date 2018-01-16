@@ -19,7 +19,7 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
 
     private func initializeVideoPreviewLayer() {
         videoPreviewLayer = qrCodeDecoder.videoPreviewLayer
-        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
         view.layer.addSublayer(videoPreviewLayer!)
     }
@@ -31,9 +31,9 @@ class QRCodeCaptureViewController: UIViewController, AVCaptureMetadataOutputObje
     }
     
     // AVCaptureMetadataOutputObjectsDelegate
-    func captureOutput(_ captureOutput: AVCaptureOutput!,
-                       didOutputMetadataObjects metadataObjects: [Any]!,
-                       from connection: AVCaptureConnection!) {
+    func metadataOutput(_ captureOutput: AVCaptureMetadataOutput,
+                       didOutput metadataObjects: [AVMetadataObject],
+                       from connection: AVCaptureConnection) {
         if let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
             qrCodeDecoder.supportedCodeTypes.contains(metadataObj.type),
             let qrCodeDecodedString = metadataObj.stringValue {
