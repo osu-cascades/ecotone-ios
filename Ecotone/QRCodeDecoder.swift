@@ -36,8 +36,7 @@ class QRCodeDecoder {
         // Devices that do not support AVMetadataObjectTypeQRCode, such as the simulator,
         // will crash when assigning unsupported code types. Check that the AVMetadataObjectTypeQRCode
         // type is supported before assigning.
-        if let availableMetadataObjectTypes = captureMetadataOutput.availableMetadataObjectTypes as? [String],
-            availableMetadataObjectTypes.contains(AVMetadataObject.ObjectType.qr.rawValue) {
+        if captureMetadataOutput.availableMetadataObjectTypes.contains(AVMetadataObject.ObjectType.qr) {
             captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         }
     }
