@@ -19,8 +19,12 @@ class QRCodeDecoder {
     
     init() {
         do {
-            input = try AVCaptureDeviceInput(device: captureDevice!)
-            captureSession.addInput(input!)
+            if let captureDevice = captureDevice {
+                input = try AVCaptureDeviceInput(device: captureDevice)
+                captureSession.addInput(input!)
+            } else {
+                input = nil
+            }
         } catch {
             input = nil
             print(error)
